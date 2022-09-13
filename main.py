@@ -7,20 +7,12 @@ shift = int(input("Type the shift number:\n"))
 
 
 def caesar(start_text, shift_amount, cipher_direction):
-    if cipher_direction == "encode":
-        encrypted_text = []
-        for i in range(0, len(start_text)):
-            index = alphabet.index(start_text[i])
-            encrypted_text.append(alphabet[(index + shift_amount) % 26])
-        print(f"The encoded text is {''.join(encrypted_text)}")
-    elif cipher_direction == "decode":
-        decrypted_text = []
-        for i in range(0, len(start_text)):
-            index = alphabet.index(start_text[i])
-            decrypted_text.append(alphabet[(index - shift_amount) % 26])
-        print(f"The decrypted text is {''.join(decrypted_text)}")
-    else:
-        print("Wrong choice")
-
+    end_text = []
+    if cipher_direction == "decode":
+        shift_amount *= -1
+    for i in range(0, len(start_text)):
+        index = alphabet.index(start_text[i])
+        end_text.append(alphabet[(index + shift_amount) % 26])
+    print(f"The {cipher_direction}d text is {''.join(end_text)}")
 
 caesar(text, shift, direction)
