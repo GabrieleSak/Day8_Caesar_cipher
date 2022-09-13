@@ -14,7 +14,7 @@ def encrypt(text, shift):
             encrypted_text.append(alphabet[index + shift - 26])
         else:
             encrypted_text.append(alphabet[index + shift])
-    print(encrypted_text)
+    print(f"The encoded text is {''.join(encrypted_text)}")
 
 
 encrypt(text, shift)
